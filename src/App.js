@@ -1,10 +1,10 @@
 import { Routes, Route, Redirect } from 'react-router-dom'
 import Layout from './components/Layout/Layout';
-import Home from './components/Home';
+import Home from './components/Home/Home';
 import './App.css'
-import Register from './components/Register';
-import Login from './components/Login';
-import Add from './components/Add';
+import Register from './components/Register/Register';
+import Login from './components/Login/Login';
+import Add from './components/Add/Add';
 
 const token =  localStorage.getItem("tokenR");
 {token && console.log('online')}
@@ -35,7 +35,7 @@ function App() {
           <Login />
         </Layout>} />
 
-      <Route path={'/home'} element={
+       <Route path={'/home'} element={
         <Layout pages={['home', 'add']} >
           <Home />
         </Layout>} />

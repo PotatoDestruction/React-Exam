@@ -1,8 +1,8 @@
+import { useEffect, useState } from "react"
+import Form from "../Form/Form"
 import { useNavigate } from "react-router-dom"
-import { useEffect, useState } from "react";
-import Form from "./Form/Form";
 
-const Login = () => {
+const Register = () => {
     const [ message, setMessage ] = useState('')
     const navigate = useNavigate();
 
@@ -11,7 +11,7 @@ const Login = () => {
     }, [])
 
     function onSubmit(email, pass){
-        fetch('https://autumn-delicate-wilderness.glitch.me/v1/auth/login', {
+        fetch('https://autumn-delicate-wilderness.glitch.me/v1/auth/register', {
                         method: 'POST',
                         headers: {
                             'Accept': 'application/json',
@@ -26,13 +26,12 @@ const Login = () => {
                         .then(res => {
                             if(res.err){
                                 console.log(res.err)
-                                setMessage(res.err)
+                                setMessage('Incorrect Data')
                                 return
                             }else {
-                                setMessage(res.msg)
-                                localStorage.setItem('tokenR', res.token)
+                                setMessage('User Created')
                                 setTimeout(()=> {
-                                    navigate('/home')
+                                    navigate('/login')
                                 },1000)        
                             }
                         })
@@ -41,7 +40,7 @@ const Login = () => {
 
     return(
         <div className="formMain">
-            <h1>Login</h1>
+            <h1>Register</h1>
             <Form 
             onSubmit={onSubmit}
              name={['Email', 'Password']}
@@ -51,4 +50,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default Register;
