@@ -6,9 +6,11 @@ const Register = () => {
     const [ message, setMessage ] = useState('')
     const navigate = useNavigate();
 
+    useEffect(() => {
+        localStorage.clear()
+    }, [])
 
     function onSubmit(email, pass){
-        console.log(email, pass)
         fetch('https://autumn-delicate-wilderness.glitch.me/v1/auth/register', {
                         method: 'POST',
                         headers: {
@@ -27,7 +29,7 @@ const Register = () => {
                                 setMessage('Incorrect Data')
                                 return
                             }else {
-                                setMessage('OK')
+                                setMessage('User Created')
                                 setTimeout(()=> {
                                     navigate('/login')
                                 },1000)        
@@ -39,8 +41,11 @@ const Register = () => {
     return(
         <div className="formMain">
             <h1>Register</h1>
-           <Form onSubmit={onSubmit} />
-           <div className="error">{message}</div>
+            <Form 
+            onSubmit={onSubmit}
+             name={['Email', 'Password']}
+             type={['email', 'password']} />
+            <div className="error">{message}</div>
         </div>
     )
 }

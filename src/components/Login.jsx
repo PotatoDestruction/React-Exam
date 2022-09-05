@@ -1,13 +1,17 @@
 import { useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react";
 import Form from "./Form/Form";
 
 const Login = () => {
-
+    const [ message, setMessage ] = useState('')
     const navigate = useNavigate();
 
+    useEffect(() => {
+        localStorage.clear()
+    }, [])
+
     function onSubmit(email, pass){
-        console.log(email, pass)
-        fetch('https://autumn-delicate-wilderness.glitch.me/v1/auth/register', {
+        fetch('https://autumn-delicate-wilderness.glitch.me/v1/auth/login', {
                         method: 'POST',
                         headers: {
                             'Accept': 'application/json',
@@ -22,9 +26,14 @@ const Login = () => {
                         .then(res => {
                             if(res.err){
                                 console.log(res.err)
+                                setMessage(res.err)
                                 return
                             }else {
-                                navigate('/login')
+                                setMessage(res.msg)
+                                localStorage.setItem('tokenR', res.token)
+                                setTimeout(()=> {
+                                    navigate('/home')
+                                },1000)        
                             }
                         })
                         .catch(error => console.log(error))
@@ -33,7 +42,11 @@ const Login = () => {
     return(
         <div className="formMain">
             <h1>Login</h1>
-            <Form onSubmit={onSubmit}/>
+            <Form 
+            onSubmit={onSubmit}
+             name={['Email', 'Password']}
+             type={['email', 'password']} />
+            <div className="error">{message}</div>
         </div>
     )
 }
