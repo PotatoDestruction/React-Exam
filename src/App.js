@@ -1,6 +1,6 @@
 import { Routes, Route, Redirect } from 'react-router-dom'
 import Layout from './components/Layout/Layout';
-import Main from './components/Main';
+import Home from './components/Home';
 import './App.css'
 import Register from './components/Register';
 import Login from './components/Login';
@@ -16,6 +16,7 @@ function App() {
       <Route path='/' element={
         <Layout
           pages={['login', 'register']}
+          
         >
           <Register />
         </Layout>} />
@@ -36,7 +37,7 @@ function App() {
 
       <Route path={'/home'} element={
         <Layout pages={['home', 'add']} >
-          <Main />
+          <Home />
         </Layout>} />
 
       <Route path='/add' element={
