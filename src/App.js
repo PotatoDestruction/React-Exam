@@ -6,7 +6,7 @@ function App() {
     <Routes>
       <Route path='/' element={<div>Register</div>} />
       <Route path='/login' element={<div>Login</div>} />
-      <Route path='/main' element={<div>main after login</div>} />
+      <Route path='/main' element={<Main />} />
       <Route path='/add' element={<div>add logged in</div>} />
       <Route path='*' element={<div>No page</div>} />
     </Routes>
