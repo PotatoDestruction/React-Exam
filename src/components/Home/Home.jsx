@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Main.css'
+import './Home.css'
 
 
 const Main = () => {
