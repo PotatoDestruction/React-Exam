@@ -18,7 +18,7 @@ const Main = () => {
         })
             .then(res => res.json())
             .then(res => {
-                if(res.err && !token){
+                if(res.err){
                     navigate('/login')
                 }else {
                     setSkills(res)
