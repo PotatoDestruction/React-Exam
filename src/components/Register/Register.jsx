@@ -25,8 +25,7 @@ const Register = () => {
                         .then(res => res.json())
                         .then(res => {
                             if(res.err){
-                                console.log(res.err)
-                                setMessage('Incorrect Data')
+                                setMessage(res.err)
                                 return
                             }else {
                                 setMessage('User Created')
@@ -40,7 +39,7 @@ const Register = () => {
 
     return(
         <div className="formMain">
-            <h1>Register</h1>
+            <h1 className="allHeader">Register</h1>
             <Form 
             onSubmit={onSubmit}
              name={['Email', 'Password']}

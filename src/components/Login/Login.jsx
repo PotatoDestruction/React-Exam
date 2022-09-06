@@ -41,7 +41,7 @@ const Login = () => {
 
     return(
         <div className="formMain">
-            <h1>Login</h1>
+            <h1 className="allHeader">Login</h1>
             <Form 
             onSubmit={onSubmit}
              name={['Email', 'Password']}

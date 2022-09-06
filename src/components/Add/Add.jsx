@@ -1,10 +1,11 @@
 import Form from "../Form/Form";
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import './Add.css'
 
 const Add = () => {
     const navigate = useNavigate();
+    const [message, setMessage] = useState('')
 
     useEffect(() => {
         const token = localStorage.getItem("tokenR");
@@ -27,20 +28,25 @@ const Add = () => {
         })
             .then(res => res.json())
             .then(res => {
-                console.log(res)
-                setTimeout(() => {
+                if(res.err) {
+                    setMessage(res.err)
+                }else{
+                    setMessage(res.msg)
+                   setTimeout(() => {
                     navigate('/home')
-                }, 1000)
+                }, 1000) 
+                }                
             })
             .catch(error => console.log(error))
     }
 
     return(
         <div className="addMain">
-            <h1>Add new skill</h1>
+            <h1 className="allHeader">Add new skill</h1>
             <div>
                 <Form onSubmit={postSkill} name={['Title', 'Description']} type={['text', 'textarea']}/>
             </div>
+            <h2 className="message">{message}</h2>
         </div>
     )
 }
