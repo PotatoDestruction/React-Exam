@@ -10,7 +10,7 @@ const Main = () => {
 
     useEffect(() => {
         const token = localStorage.getItem("tokenR");
-        { !token && navigate('/login') }
+        {!token && navigate('/login')}
         fetch('https://autumn-delicate-wilderness.glitch.me/v1/content/skills', {
             headers: {
                 "Authorization": `Bearer ${token}`
@@ -18,7 +18,12 @@ const Main = () => {
         })
             .then(res => res.json())
             .then(res => {
-                setSkills(res)
+                if(res.err && !token){
+                    navigate('/login')
+                }else {
+                    setSkills(res)
+                }
+                
             })
             .catch(error => console.log(error))
     }, [])
