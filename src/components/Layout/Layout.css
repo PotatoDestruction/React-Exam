@@ -1,8 +1,9 @@
 header {
     display: flex;
     justify-content: space-around;
-    background-color: gray;
     padding: 5px;
+    border-bottom: 2px solid black;
+    background-color: rgba(128, 128, 128, 0.24);
 }
 
 header div {
@@ -17,6 +18,8 @@ header div a {
     color: black;
     font-weight: 700;
     font-size: 20px;
+    text-transform: capitalize;
+    color: blue;
 }
 
 header div a:hover {
@@ -30,21 +33,38 @@ footer {
     text-align: center;
     font-weight: 700;
     font-size: 20px;
-    background-color: orange;
+    background-color: rgba(128, 128, 128, 0.24);
     padding: 10px;
 }
 
-.status {
+.statusOn {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 10px;
-    color: blue;
+    color: green;
+    font-size: 30px;
+    padding: 5px;
+}
+
+.statusOn a {
+    font-size: 20px;
+    text-decoration: none;
+    color: red;
+    float: right;
+}
+
+.statusOff {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: red;
     font-size: 30px;
 }
 
-.logOut a{
-    text-decoration: none;
-    color: red;
-    font-size: 16px;
+.statusOff h3, .statusOn h3 {
+    margin: 0;
+} 
+
+.allHeader {
+    text-align: center;
 }

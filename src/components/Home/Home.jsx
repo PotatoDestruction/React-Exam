@@ -26,7 +26,7 @@ const Main = () => {
 
     return (
         <div className="main">
-            <h1>Home</h1>
+            <h1 className='allHeader'>Home</h1>
             <div className='skillContainer'>
                 {!skills && <h1 className='info'>LOADING . . .</h1>}
                 {skills && skills.length === 0 && <h1 className='info'>You have no skills...</h1>}

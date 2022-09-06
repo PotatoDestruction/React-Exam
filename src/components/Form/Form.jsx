@@ -9,12 +9,11 @@ const Form = ({ onSubmit, name, type }) => {
                 {type[0] === 'email' && onSubmit(e.target.email.value, e.target.password.value)}
                 {type[0] === 'text' && onSubmit(e.target.text.value, e.target.textarea.value)}
                 
-
             }}>
                 <label>{name[0]}:</label>
-                <input type={type[0]} name={type[0]} />
+                <input type={type[0]} name={type[0]} required/>
                 <label>{name[1]}:</label>
-                {type[1] === 'textarea' ? <textarea name={type[1]} /> : <input type={type[1]} name={type[1]} />}
+                {type[1] === 'textarea' ? <textarea required name={type[1]} /> : <input type={type[1]} name={type[1]} required/>}
                 <div className='buttonWrap'>
                     <button type="submit">Submit</button>
                 </div>
