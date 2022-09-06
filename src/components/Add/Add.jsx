@@ -28,7 +28,7 @@ const Add = () => {
             .then(res => res.json())
             .then(res => {
                 if (res.err) {
-                    setMessage(res.err)
+                    setMessage(res.err)               
                 } else {
                     setMessage(res.msg)
                     setTimeout(() => {
