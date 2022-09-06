@@ -9,11 +9,10 @@ const Add = () => {
 
     useEffect(() => {
         const token = localStorage.getItem("tokenR");
-        {!token && navigate('/login')}
+        { !token && navigate('/login') }
     }, [])
 
     function postSkill(title, description) {
-        console.log(title, description)
         const token = localStorage.getItem("tokenR");
         fetch('https://autumn-delicate-wilderness.glitch.me/v1/content/skills', {
             method: 'POST',
@@ -28,23 +27,23 @@ const Add = () => {
         })
             .then(res => res.json())
             .then(res => {
-                if(res.err) {
+                if (res.err) {
                     setMessage(res.err)
-                }else{
+                } else {
                     setMessage(res.msg)
-                   setTimeout(() => {
-                    navigate('/home')
-                }, 1000) 
-                }                
+                    setTimeout(() => {
+                        navigate('/home')
+                    }, 1000)
+                }
             })
             .catch(error => console.log(error))
     }
 
-    return(
+    return (
         <div className="addMain">
             <h1 className="allHeader">Add new skill</h1>
             <div>
-                <Form onSubmit={postSkill} name={['Title', 'Description']} type={['text', 'textarea']}/>
+                <Form onSubmit={postSkill} name={['Title', 'Description']} type={['text', 'textarea']} />
             </div>
             <h2 className="message">{message}</h2>
         </div>
