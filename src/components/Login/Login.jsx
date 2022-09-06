@@ -25,7 +25,6 @@ const Login = () => {
                         .then(res => res.json())
                         .then(res => {
                             if(res.err){
-                                console.log(res.err)
                                 setMessage(res.err)
                                 return
                             }else {
