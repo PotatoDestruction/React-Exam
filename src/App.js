@@ -53,41 +53,7 @@ function App() {
           <Route key={num} path={route.path} element={route.element} />
         )  
       })}
-
-      {/* <Route path={routes[0].path} element={
-        <Layout
-          pages={['login', 'register']}
-          
-        >
-          <Register />
-        </Layout>} />
-
-        <Route path='/register' element={
-        <Layout
-          pages={['login', 'register']}
-        >
-          <Register />
-        </Layout>} />
-
-      <Route path='/login' element={
-        <Layout
-          pages={['login', 'register']}
-        >
-          <Login />
-        </Layout>} />
-
-       <Route path={'/home'} element={
-        <Layout pages={['home', 'add']} >
-          <Home />
-        </Layout>} />
-
-      <Route path='/add' element={
-        <Layout
-          pages={['home', 'add']}>
-          <Add />
-        </Layout>} />
-
-      <Route path='*' element={<Layout><div>Page Does not exist</div></Layout>} /> */}
+     
     </Routes>
   );
 }
